@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Menu, X, Search, MessageCircle, ExternalLink } from "lucide-react";
+import { Menu, X, Search, MessageCircle, ExternalLink, ArrowRight } from "lucide-react";
 import { APP_LOGO, APP_TITLE } from "@/const";
 
 const WHATSAPP_NUMBER = "5541995134690";
@@ -45,32 +45,32 @@ export default function Home() {
     {
       title: "Consultoria Estratégica",
       description: "Planejamento estratégico e análise de negócios para PMEs",
-      icon: "📊",
+      image: "/strategy.png",
     },
     {
       title: "Transformação Digital",
       description: "Implementação de soluções digitais e modernização de processos",
-      icon: "🚀",
+      image: "/digital-transformation.png",
     },
     {
       title: "Gestão de Projetos",
       description: "Metodologias ágeis e gerenciamento eficiente de projetos",
-      icon: "📋",
+      image: "/solutions.png",
     },
     {
       title: "Consultoria Financeira",
       description: "Análise financeira, planejamento e otimização de custos",
-      icon: "💰",
+      image: "/strategy.png",
     },
     {
       title: "Recursos Humanos",
       description: "Gestão de pessoas, recrutamento e desenvolvimento de equipes",
-      icon: "👥",
+      image: "/solutions.png",
     },
     {
       title: "Automações (RPA)",
       description: "Robotic Process Automation para otimizar processos repetitivos",
-      icon: "⚙️",
+      image: "/digital-transformation.png",
     },
   ];
 
@@ -80,47 +80,56 @@ export default function Home() {
       name: "ChatGPT",
       description: "Assistente de IA para escrita, análise e brainstorming",
       category: "Assistente",
+      url: "https://chatgpt.com",
     },
     {
       name: "Copilot",
       description: "Assistente de código e produtividade integrado ao Office",
       category: "Produtividade",
+      url: "https://copilot.microsoft.com",
     },
     {
       name: "Claude",
       description: "IA avançada para análise complexa e redação profissional",
       category: "Assistente",
+      url: "https://claude.ai",
     },
     {
       name: "Midjourney",
       description: "Geração de imagens de alta qualidade com IA",
       category: "Imagem",
+      url: "https://www.midjourney.com",
     },
     {
       name: "DALL-E",
       description: "Criação de imagens personalizadas a partir de descrições",
       category: "Imagem",
+      url: "https://openai.com/dall-e-3",
     },
     {
       name: "Manus",
       description: "Plataforma de automação e desenvolvimento de aplicações",
       category: "Automação",
       url: "https://manus.im/invitation/Y1AQAAK2FAJXU",
+      isReferral: true,
     },
     {
       name: "Jasper",
       description: "Ferramenta de escrita com IA para marketing e conteúdo",
       category: "Conteúdo",
+      url: "https://www.jasper.ai",
     },
     {
       name: "Synthesia",
       description: "Criação de vídeos com avatares de IA",
       category: "Vídeo",
+      url: "https://www.synthesia.io",
     },
     {
       name: "Typeform",
       description: "Criação de formulários inteligentes com IA",
       category: "Formulários",
+      url: "https://www.typeform.com",
     },
   ];
 
@@ -139,14 +148,14 @@ export default function Home() {
       description: "Sistema de gestão de vendas para controle de pipeline e clientes",
       status: "Live",
       url: "https://delmack-rei-fwqutmfh.manus.space/",
-      icon: "📈",
+      image: "/strategy.png",
     },
     {
       name: "ImobRH",
       description: "Sistema de gestão de recursos humanos para imobiliárias",
       status: "Em Desenvolvimento",
       url: "#",
-      icon: "👔",
+      image: "/imobRH.png",
     },
   ];
 
@@ -155,32 +164,29 @@ export default function Home() {
     {
       title: "Expertise Comprovada",
       description: "Mais de 10 anos de experiência em consultoria empresarial",
-      icon: "🎯",
+      image: "/expertise.png",
     },
     {
       title: "Soluções Personalizadas",
       description: "Cada solução é adaptada às necessidades específicas do seu negócio",
-      icon: "🔧",
+      image: "/solutions.png",
     },
     {
       title: "Tecnologia de Ponta",
       description: "Utilizamos as melhores ferramentas e tecnologias disponíveis",
-      icon: "💻",
+      image: "/technology.png",
     },
   ];
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* Navegação */}
-      <nav className="sticky top-0 z-50 bg-white shadow-md">
+      <nav className="sticky top-0 z-50 bg-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <img src={APP_LOGO} alt="Delmack" className="h-10 w-auto" />
-              <span className="ml-2 text-lg font-bold text-gray-900">
-                Delmack
-              </span>
+              <img src="/delmack-logo.png" alt="Delmack" className="h-12 w-auto" />
             </div>
 
             {/* Menu Desktop */}
@@ -189,7 +195,7 @@ export default function Home() {
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.ref)}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300"
                 >
                   {section.title}
                 </button>
@@ -202,7 +208,7 @@ export default function Home() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-all duration-300 button-glow"
               >
                 <MessageCircle size={18} />
                 WhatsApp
@@ -220,12 +226,12 @@ export default function Home() {
 
           {/* Menu Mobile Expandido */}
           {mobileMenuOpen && (
-            <div className="md:hidden pb-4 border-t">
+            <div className="md:hidden pb-4 border-t animate-fade-in">
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.ref)}
-                  className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                  className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                 >
                   {section.title}
                 </button>
@@ -234,7 +240,7 @@ export default function Home() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-left px-4 py-2 text-green-500 font-medium hover:bg-gray-100"
+                className="block w-full text-left px-4 py-2 text-green-500 font-medium hover:bg-green-50"
               >
                 WhatsApp
               </a>
@@ -246,28 +252,34 @@ export default function Home() {
       {/* Seção Hero */}
       <section
         ref={heroRef}
-        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 px-4 sm:px-6 lg:px-8"
+        className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
       >
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+        {/* Efeito de fundo */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h1 className="text-5xl sm:text-6xl font-bold mb-6 animate-fade-in">
             Consultoria Empresarial de Excelência
           </h1>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-xl sm:text-2xl mb-8 text-blue-100 animate-fade-in">
             Transformamos negócios através de estratégia, tecnologia e inovação
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-600 transition-colors inline-flex items-center justify-center gap-2"
+              className="bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition-all duration-300 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl button-glow"
             >
               <MessageCircle size={20} />
               Consultoria Gratuita
             </a>
             <button
               onClick={() => scrollToSection(servicesRef)}
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors inline-flex items-center justify-center gap-2"
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
             >
               <Search size={20} />
               Conheça Nossos Serviços
@@ -277,20 +289,29 @@ export default function Home() {
       </section>
 
       {/* Seção Sobre */}
-      <section ref={aboutRef} className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            Por que escolher nossa consultoria?
-          </h2>
+      <section ref={aboutRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
+              Por que escolher nossa consultoria?
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             {differentials.map((diff, index) => (
               <Card
                 key={index}
-                className="p-6 text-center hover:shadow-lg transition-shadow"
+                className="p-8 hover:shadow-2xl transition-all duration-300 card-hover border-0 overflow-hidden"
               >
-                <div className="text-4xl mb-4">{diff.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{diff.title}</h3>
-                <p className="text-gray-600">{diff.description}</p>
+                <div className="mb-6 h-56 overflow-hidden rounded-xl image-overlay">
+                  <img
+                    src={diff.image}
+                    alt={diff.title}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">{diff.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{diff.description}</p>
               </Card>
             ))}
           </div>
@@ -298,27 +319,37 @@ export default function Home() {
       </section>
 
       {/* Seção Serviços */}
-      <section ref={servicesRef} className="py-16 px-4 sm:px-6 lg:px-8">
+      <section ref={servicesRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            Nossos Serviços
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
+              Nossos Serviços
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-lg transition-shadow border-l-4 border-blue-600"
+                className="p-8 hover:shadow-2xl transition-all duration-300 card-hover border-l-4 border-blue-600 overflow-hidden bg-gradient-to-br from-white to-gray-50"
               >
-                <div className="text-3xl mb-3">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
+                <div className="mb-6 h-48 overflow-hidden rounded-xl image-overlay">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center gap-2"
+                  className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center gap-2 transition-colors duration-300"
                 >
-                  Saiba mais →
+                  Saiba mais
+                  <ArrowRight size={16} />
                 </a>
               </Card>
             ))}
@@ -327,23 +358,35 @@ export default function Home() {
       </section>
 
       {/* Seção Sistemas */}
-      <section ref={systemsRef} className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section ref={systemsRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            Nossos Sistemas
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
+              Nossos Sistemas
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
+          </div>
           <div className="grid md:grid-cols-2 gap-8">
             {systems.map((system, index) => (
-              <Card key={index} className="p-8 hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-4">{system.icon}</div>
-                <h3 className="text-2xl font-bold mb-2">{system.name}</h3>
-                <p className="text-gray-600 mb-4">{system.description}</p>
-                <div className="flex items-center gap-2 mb-4">
+              <Card
+                key={index}
+                className="p-8 hover:shadow-2xl transition-all duration-300 card-hover overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50"
+              >
+                <div className="mb-6 h-56 overflow-hidden rounded-xl image-overlay">
+                  <img
+                    src={system.image}
+                    alt={system.name}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">{system.name}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{system.description}</p>
+                <div className="flex items-center gap-2 mb-6">
                   <span
-                    className={`px-3 py-1 rounded-full text-sm font-semibold ${
+                    className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                       system.status === "Live"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-yellow-100 text-yellow-800"
+                        ? "bg-green-100 text-green-800 shadow-md"
+                        : "bg-yellow-100 text-yellow-800 shadow-md"
                     }`}
                   >
                     {system.status}
@@ -354,7 +397,7 @@ export default function Home() {
                     href={system.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl button-glow"
                   >
                     Acessar Sistema
                     <ExternalLink size={16} />
@@ -367,20 +410,23 @@ export default function Home() {
       </section>
 
       {/* Seção Ferramentas de IA */}
-      <section ref={toolsRef} className="py-16 px-4 sm:px-6 lg:px-8">
+      <section ref={toolsRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
-            Ferramentas de IA para PMEs
-          </h2>
-          <p className="text-center text-gray-600 mb-8">
-            Curadoria de ferramentas de inteligência artificial para potencializar seu negócio
-          </p>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
+              Ferramentas de IA para PMEs
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Curadoria de ferramentas de inteligência artificial para potencializar seu negócio
+            </p>
+          </div>
 
           {/* Barra de Busca */}
-          <div className="mb-8">
+          <div className="mb-12">
             <div className="relative max-w-md mx-auto">
               <Search
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
                 size={20}
               />
               <Input
@@ -388,169 +434,158 @@ export default function Home() {
                 placeholder="Buscar ferramentas..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 py-2 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                className="pl-12 py-3 w-full border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
               />
             </div>
           </div>
 
           {/* Grid de Ferramentas */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredTools.length > 0 ? (
               filteredTools.map((tool, index) => (
                 <Card
                   key={index}
-                  className="p-6 hover:shadow-lg transition-shadow flex flex-col"
+                  className="p-8 hover:shadow-2xl transition-all duration-300 card-hover flex flex-col border-0 bg-gradient-to-br from-white to-gray-50"
                 >
-                  <h3 className="text-lg font-bold mb-2">{tool.name}</h3>
-                  <p className="text-sm text-gray-500 mb-3">{tool.category}</p>
-                  <p className="text-gray-600 mb-4 flex-grow">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-lg font-bold text-gray-900 flex-1">{tool.name}</h3>
+                    {tool.isReferral && (
+                      <span className="ml-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                        Referência
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-blue-600 font-semibold mb-3">{tool.category}</p>
+                  <p className="text-gray-600 mb-6 flex-grow leading-relaxed">
                     {tool.description}
                   </p>
-                  {tool.url && tool.url !== "#" ? (
-                    <a
-                      href={tool.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center gap-2"
-                    >
-                      Conhecer →
-                    </a>
-                  ) : (
-                    <span className="text-gray-400 font-semibold">
-                      Em breve →
-                    </span>
-                  )}
+                  <a
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center gap-2 transition-colors duration-300"
+                  >
+                    Conhecer
+                    <ExternalLink size={16} />
+                  </a>
                 </Card>
               ))
             ) : (
-              <div className="col-span-full text-center py-8 text-gray-500">
-                Nenhuma ferramenta encontrada para "{searchTerm}"
+              <div className="col-span-full text-center py-12 text-gray-500">
+                <Search size={48} className="mx-auto mb-4 opacity-50" />
+                <p className="text-lg">Nenhuma ferramenta encontrada para "{searchTerm}"</p>
               </div>
             )}
-          </div>
-
-          {/* Referral Link Manus */}
-          <div className="mt-12 bg-blue-50 p-8 rounded-lg text-center">
-            <h3 className="text-xl font-bold mb-3">Conheça a Plataforma Manus</h3>
-            <p className="text-gray-600 mb-4">
-              Automação e desenvolvimento de aplicações sem código
-            </p>
-            <a
-              href="https://manus.im/invitation/Y1AQAAK2FAJXU"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Acessar Manus
-              <ExternalLink size={16} />
-            </a>
           </div>
         </div>
       </section>
 
       {/* Seção Contato */}
-      <section ref={contactRef} className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section ref={contactRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            Entre em Contato
-          </h2>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
+              Entre em Contato
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
+          </div>
 
-          <Card className="p-8">
+          <Card className="p-8 sm:p-12 shadow-xl border-0 bg-gradient-to-br from-white to-gray-50">
             <form
               action="https://formspree.io/f/YOUR_FORM_ID"
               method="POST"
               className="space-y-6"
             >
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 mb-3">
                   Nome
                 </label>
                 <input
                   type="text"
                   name="name"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
                   placeholder="Seu nome"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 mb-3">
                   Email
                 </label>
                 <input
                   type="email"
                   name="email"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
                   placeholder="seu@email.com"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 mb-3">
                   Telefone
                 </label>
                 <input
                   type="tel"
                   name="phone"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
                   placeholder="(41) 99999-9999"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 mb-3">
                   Assunto
                 </label>
                 <input
                   type="text"
                   name="subject"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
                   placeholder="Assunto da mensagem"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 mb-3">
                   Mensagem
                 </label>
                 <textarea
                   name="message"
                   required
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300 resize-none"
                   placeholder="Sua mensagem aqui..."
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-4 rounded-lg font-bold hover:shadow-lg transition-all duration-300 button-glow"
               >
                 Enviar Mensagem
               </Button>
             </form>
 
-            <div className="mt-8 pt-8 border-t border-gray-200">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-2">Email</h3>
+            <div className="mt-10 pt-10 border-t-2 border-gray-200">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="text-center md:text-left">
+                  <h3 className="font-bold text-gray-900 mb-3 text-lg">Email</h3>
                   <a
                     href="mailto:delmackconsultoria@gmail.com"
-                    className="text-blue-600 hover:text-blue-800"
+                    className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300"
                   >
                     delmackconsultoria@gmail.com
                   </a>
                 </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-2">WhatsApp</h3>
+                <div className="text-center md:text-left">
+                  <h3 className="font-bold text-gray-900 mb-3 text-lg">WhatsApp</h3>
                   <a
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-green-600 hover:text-green-800 inline-flex items-center gap-2"
+                    className="text-green-600 hover:text-green-800 inline-flex items-center gap-2 font-semibold transition-colors duration-300"
                   >
                     <MessageCircle size={18} />
                     (41) 99513-4690
@@ -563,23 +598,23 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 className="font-bold mb-4">Delmack Consultoria</h3>
-              <p className="text-gray-400">
+              <h3 className="font-bold text-lg mb-4">Delmack Consultoria</h3>
+              <p className="text-gray-400 leading-relaxed">
                 Transformando negócios através de consultoria estratégica e tecnologia
               </p>
             </div>
             <div>
-              <h3 className="font-bold mb-4">Navegação Rápida</h3>
+              <h3 className="font-bold text-lg mb-4">Navegação Rápida</h3>
               <ul className="space-y-2 text-gray-400">
                 {sections.map((section) => (
                   <li key={section.id}>
                     <button
                       onClick={() => scrollToSection(section.ref)}
-                      className="hover:text-white transition-colors"
+                      className="hover:text-white transition-colors duration-300"
                     >
                       {section.title}
                     </button>
@@ -588,23 +623,23 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-4">Contato</h3>
+              <h3 className="font-bold text-lg mb-4">Contato</h3>
               <p className="text-gray-400 mb-2">
                 Email: delmackconsultoria@gmail.com
               </p>
-              <p className="text-gray-400 mb-2">CNPJ: 61.887.193/0001-39</p>
+              <p className="text-gray-400 mb-4">CNPJ: 61.887.193/0001-39</p>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-400 hover:text-green-300 inline-flex items-center gap-2"
+                className="text-green-400 hover:text-green-300 inline-flex items-center gap-2 transition-colors duration-300"
               >
                 <MessageCircle size={18} />
                 WhatsApp
               </a>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
             <p>
               &copy; 2025 Delmack Consultoria. Todos os direitos reservados.
             </p>
