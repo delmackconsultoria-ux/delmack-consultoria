@@ -39,3 +39,12 @@
 - [x] Melhorar responsividade e experiência mobile
 - [x] Otimizar cards e elementos interativos
 - [x] Testar design melhorado em todos os dispositivos
+
+
+## Correções Solicitadas
+
+- [x] Corrigir descrições dos serviços conforme estratégias corretas
+- [x] Revisar e validar todas as descrições de serviços
+- [x] Corrigir imagens cortadas - aumentar altura das imagens
+- [x] Garantir que o texto das imagens seja totalmente visível
+- [x] Testar mudanças e salvar novo checkpoint

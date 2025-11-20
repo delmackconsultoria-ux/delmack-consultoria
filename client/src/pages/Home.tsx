@@ -303,11 +303,11 @@ export default function Home() {
                 key={index}
                 className="p-8 hover:shadow-2xl transition-all duration-300 card-hover border-0 overflow-hidden"
               >
-                <div className="mb-6 h-56 overflow-hidden rounded-xl image-overlay">
+                <div className="mb-6 h-64 overflow-hidden rounded-xl image-overlay">
                   <img
                     src={diff.image}
                     alt={diff.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    className="w-full h-full object-contain bg-gray-100 transition-transform duration-300 hover:scale-105"
                   />
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">{diff.title}</h3>
@@ -333,11 +333,11 @@ export default function Home() {
                 key={index}
                 className="p-8 hover:shadow-2xl transition-all duration-300 card-hover border-l-4 border-blue-600 overflow-hidden bg-gradient-to-br from-white to-gray-50"
               >
-                <div className="mb-6 h-48 overflow-hidden rounded-xl image-overlay">
+                <div className="mb-6 h-56 overflow-hidden rounded-xl image-overlay">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    className="w-full h-full object-contain bg-gray-100 transition-transform duration-300 hover:scale-105"
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
@@ -372,11 +372,11 @@ export default function Home() {
                 key={index}
                 className="p-8 hover:shadow-2xl transition-all duration-300 card-hover overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50"
               >
-                <div className="mb-6 h-56 overflow-hidden rounded-xl image-overlay">
+                <div className="mb-6 h-64 overflow-hidden rounded-xl image-overlay">
                   <img
                     src={system.image}
                     alt={system.name}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    className="w-full h-full object-contain bg-gray-100 transition-transform duration-300 hover:scale-105"
                   />
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">{system.name}</h3>
