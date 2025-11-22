@@ -2,7 +2,18 @@ import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Menu, X, Search, MessageCircle, ExternalLink, ArrowRight } from "lucide-react";
+import {
+  Menu,
+  X,
+  Search,
+  MessageCircle,
+  ExternalLink,
+  ArrowRight,
+  BarChart3,
+  Zap,
+  Layers,
+  Cog,
+} from "lucide-react";
 import { APP_LOGO, APP_TITLE } from "@/const";
 
 const WHATSAPP_NUMBER = "5541995134690";
@@ -23,16 +34,16 @@ export default function Home() {
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const servicesRef = useRef<HTMLDivElement | null>(null);
   const systemsRef = useRef<HTMLDivElement | null>(null);
-  const toolsRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
+  const toolsRef = useRef<HTMLDivElement | null>(null);
 
   const sections: Section[] = [
     { id: "inicio", title: "Início", ref: heroRef },
     { id: "sobre", title: "Sobre", ref: aboutRef },
     { id: "servicos", title: "Serviços", ref: servicesRef },
     { id: "sistemas", title: "Sistemas", ref: systemsRef },
-    { id: "ferramentas", title: "Ferramentas de IA", ref: toolsRef },
     { id: "contato", title: "Contato", ref: contactRef },
+    { id: "ferramentas", title: "Ferramentas de IA", ref: toolsRef },
   ];
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
@@ -40,37 +51,27 @@ export default function Home() {
     setMobileMenuOpen(false);
   };
 
-  // Dados dos serviços
+  // Dados dos serviços (apenas 4 agora)
   const services = [
     {
       title: "Consultoria Estratégica",
       description: "Planejamento estratégico e análise de negócios para PMEs",
-      image: "/strategy.png",
+      icon: BarChart3,
     },
     {
       title: "Transformação Digital",
       description: "Implementação de soluções digitais e modernização de processos",
-      image: "/digital-transformation.png",
+      icon: Zap,
     },
     {
       title: "Gestão de Projetos",
       description: "Metodologias ágeis e gerenciamento eficiente de projetos",
-      image: "/solutions.png",
-    },
-    {
-      title: "Consultoria Financeira",
-      description: "Análise financeira, planejamento e otimização de custos",
-      image: "/strategy.png",
-    },
-    {
-      title: "Recursos Humanos",
-      description: "Gestão de pessoas, recrutamento e desenvolvimento de equipes",
-      image: "/solutions.png",
+      icon: Layers,
     },
     {
       title: "Automações (RPA)",
       description: "Robotic Process Automation para otimizar processos repetitivos",
-      image: "/digital-transformation.png",
+      icon: Cog,
     },
   ];
 
@@ -153,8 +154,8 @@ export default function Home() {
     {
       name: "ImobRH",
       description: "Sistema de gestão de recursos humanos para imobiliárias",
-      status: "Em Desenvolvimento",
-      url: "#",
+      status: "Live",
+      url: "https://8080-ijjvh4zducxcjkgeckt5h-d771589c.manusvm.computer/imobrh-landing.html",
       image: "/imobRH.png",
     },
   ];
@@ -327,32 +328,33 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                className="p-8 hover:shadow-2xl transition-all duration-300 card-hover border-l-4 border-blue-600 overflow-hidden bg-gradient-to-br from-white to-gray-50"
-              >
-                <div className="mb-6 h-56 overflow-hidden rounded-xl image-overlay">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-contain bg-gray-100 transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center gap-2 transition-colors duration-300"
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <Card
+                  key={index}
+                  className="p-8 hover:shadow-2xl transition-all duration-300 card-hover border-l-4 border-blue-600 overflow-hidden bg-gradient-to-br from-white to-gray-50 flex flex-col"
                 >
-                  Saiba mais
-                  <ArrowRight size={16} />
-                </a>
-              </Card>
-            ))}
+                  <div className="mb-6 flex justify-center">
+                    <div className="p-4 bg-blue-100 rounded-full">
+                      <IconComponent size={40} className="text-blue-600" />
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold mb-3 text-gray-900 text-center">{service.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed text-center flex-grow">{service.description}</p>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center gap-2 transition-colors duration-300 justify-center"
+                  >
+                    Saiba mais
+                    <ArrowRight size={16} />
+                  </a>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -392,90 +394,17 @@ export default function Home() {
                     {system.status}
                   </span>
                 </div>
-                {system.status === "Live" && (
-                  <a
-                    href={system.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl button-glow"
-                  >
-                    Acessar Sistema
-                    <ExternalLink size={16} />
-                  </a>
-                )}
+                <a
+                  href={system.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl button-glow"
+                >
+                  Acessar Sistema
+                  <ExternalLink size={16} />
+                </a>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Seção Ferramentas de IA */}
-      <section ref={toolsRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
-              Ferramentas de IA para PMEs
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Curadoria de ferramentas de inteligência artificial para potencializar seu negócio
-            </p>
-          </div>
-
-          {/* Barra de Busca */}
-          <div className="mb-12">
-            <div className="relative max-w-md mx-auto">
-              <Search
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
-                size={20}
-              />
-              <Input
-                type="text"
-                placeholder="Buscar ferramentas..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-12 py-3 w-full border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-              />
-            </div>
-          </div>
-
-          {/* Grid de Ferramentas */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredTools.length > 0 ? (
-              filteredTools.map((tool, index) => (
-                <Card
-                  key={index}
-                  className="p-8 hover:shadow-2xl transition-all duration-300 card-hover flex flex-col border-0 bg-gradient-to-br from-white to-gray-50"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-lg font-bold text-gray-900 flex-1">{tool.name}</h3>
-                    {tool.isReferral && (
-                      <span className="ml-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-                        Referência
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-sm text-blue-600 font-semibold mb-3">{tool.category}</p>
-                  <p className="text-gray-600 mb-6 flex-grow leading-relaxed">
-                    {tool.description}
-                  </p>
-                  <a
-                    href={tool.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center gap-2 transition-colors duration-300"
-                  >
-                    Conhecer
-                    <ExternalLink size={16} />
-                  </a>
-                </Card>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-12 text-gray-500">
-                <Search size={48} className="mx-auto mb-4 opacity-50" />
-                <p className="text-lg">Nenhuma ferramenta encontrada para "{searchTerm}"</p>
-              </div>
-            )}
           </div>
         </div>
       </section>
@@ -594,6 +523,77 @@ export default function Home() {
               </div>
             </div>
           </Card>
+        </div>
+      </section>
+
+      {/* Seção Ferramentas de IA */}
+      <section ref={toolsRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
+              Ferramentas de IA para PMEs
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Curadoria de ferramentas de inteligência artificial para potencializar seu negócio
+            </p>
+          </div>
+
+          {/* Barra de Busca */}
+          <div className="mb-12">
+            <div className="relative max-w-md mx-auto">
+              <Search
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={20}
+              />
+              <Input
+                type="text"
+                placeholder="Buscar ferramentas..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-12 py-3 w-full border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
+              />
+            </div>
+          </div>
+
+          {/* Grid de Ferramentas */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredTools.length > 0 ? (
+              filteredTools.map((tool, index) => (
+                <Card
+                  key={index}
+                  className="p-8 hover:shadow-2xl transition-all duration-300 card-hover flex flex-col border-0 bg-gradient-to-br from-white to-gray-50"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-lg font-bold text-gray-900 flex-1">{tool.name}</h3>
+                    {tool.isReferral && (
+                      <span className="ml-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                        Referência
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-blue-600 font-semibold mb-3">{tool.category}</p>
+                  <p className="text-gray-600 mb-6 flex-grow leading-relaxed">
+                    {tool.description}
+                  </p>
+                  <a
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center gap-2 transition-colors duration-300"
+                  >
+                    Conhecer
+                    <ExternalLink size={16} />
+                  </a>
+                </Card>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12 text-gray-500">
+                <Search size={48} className="mx-auto mb-4 opacity-50" />
+                <p className="text-lg">Nenhuma ferramenta encontrada para "{searchTerm}"</p>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 

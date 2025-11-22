@@ -48,3 +48,13 @@
 - [x] Corrigir imagens cortadas - aumentar altura das imagens
 - [x] Garantir que o texto das imagens seja totalmente visível
 - [x] Testar mudanças e salvar novo checkpoint
+
+
+## Alterações Solicitadas - Fase 2
+
+- [x] Remover Consultoria Financeira e RH da seção de serviços
+- [x] Remover imagens dos 4 serviços restantes
+- [x] Adicionar ícones simples para cada serviço
+- [x] Reordenar seções: mover Contato antes de Ferramentas de IA
+- [x] Adicionar link da Landing Page ImobRH no sistema
+- [x] Testar e salvar novo checkpoint
