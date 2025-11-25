@@ -58,3 +58,11 @@
 - [x] Reordenar seções: mover Contato antes de Ferramentas de IA
 - [x] Adicionar link da Landing Page ImobRH no sistema
 - [x] Testar e salvar novo checkpoint
+
+
+## Correções Finais
+
+- [x] Trocar imagens da seção "Sobre" por ícones simples
+- [x] Corrigir layout da seção "Sistemas" - deixar limpo com 2 colunas
+- [x] Manter imagens dos sistemas (Strategy e ImobRH)
+- [x] Testar e salvar novo checkpoint

@@ -13,6 +13,9 @@ import {
   Zap,
   Layers,
   Cog,
+  Award,
+  Lightbulb,
+  Cpu,
 } from "lucide-react";
 import { APP_LOGO, APP_TITLE } from "@/const";
 
@@ -165,17 +168,17 @@ export default function Home() {
     {
       title: "Expertise Comprovada",
       description: "Mais de 10 anos de experiência em consultoria empresarial",
-      image: "/expertise.png",
+      icon: Award,
     },
     {
       title: "Soluções Personalizadas",
       description: "Cada solução é adaptada às necessidades específicas do seu negócio",
-      image: "/solutions.png",
+      icon: Lightbulb,
     },
     {
       title: "Tecnologia de Ponta",
       description: "Utilizamos as melhores ferramentas e tecnologias disponíveis",
-      image: "/technology.png",
+      icon: Cpu,
     },
   ];
 
@@ -304,15 +307,16 @@ export default function Home() {
                 key={index}
                 className="p-8 hover:shadow-2xl transition-all duration-300 card-hover border-0 overflow-hidden"
               >
-                <div className="mb-6 h-64 overflow-hidden rounded-xl image-overlay">
-                  <img
-                    src={diff.image}
-                    alt={diff.title}
-                    className="w-full h-full object-contain bg-gray-100 transition-transform duration-300 hover:scale-105"
-                  />
+                <div className="mb-6 flex justify-center">
+                  <div className="p-4 bg-blue-100 rounded-full">
+                    {(() => {
+                      const IconComponent = diff.icon;
+                      return <IconComponent size={48} className="text-blue-600" />;
+                    })()}
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">{diff.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{diff.description}</p>
+                <h3 className="text-2xl font-bold mb-3 text-gray-900 text-center">{diff.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-center">{diff.description}</p>
               </Card>
             ))}
           </div>
@@ -372,17 +376,17 @@ export default function Home() {
             {systems.map((system, index) => (
               <Card
                 key={index}
-                className="p-8 hover:shadow-2xl transition-all duration-300 card-hover overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50"
+                className="p-8 hover:shadow-2xl transition-all duration-300 card-hover overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 flex flex-col"
               >
-                <div className="mb-6 h-64 overflow-hidden rounded-xl image-overlay">
+                <div className="mb-6 h-48 overflow-hidden rounded-xl image-overlay">
                   <img
                     src={system.image}
                     alt={system.name}
                     className="w-full h-full object-contain bg-gray-100 transition-transform duration-300 hover:scale-105"
                   />
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-gray-900">{system.name}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{system.description}</p>
+                <h3 className="text-2xl font-bold mb-2 text-gray-900">{system.name}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed flex-grow">{system.description}</p>
                 <div className="flex items-center gap-2 mb-6">
                   <span
                     className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
@@ -398,7 +402,7 @@ export default function Home() {
                   href={system.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl button-glow"
+                  className="w-full text-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl button-glow inline-flex items-center justify-center gap-2"
                 >
                   Acessar Sistema
                   <ExternalLink size={16} />
