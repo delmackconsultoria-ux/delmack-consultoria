@@ -531,15 +531,15 @@ export default function Home() {
       </section>
 
       {/* Seção Ferramentas de IA */}
-      <section ref={toolsRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section ref={toolsRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
-              Ferramentas de IA para PMEs
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text-tech">
+              Ferramentas de IA
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mb-6"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Curadoria de ferramentas de inteligência artificial para potencializar seu negócio
+              Sugestões curadas de ferramentas de inteligência artificial para potencializar seu negócio
             </p>
           </div>
 
@@ -566,15 +566,20 @@ export default function Home() {
               filteredTools.map((tool, index) => (
                 <Card
                   key={index}
-                  className="p-8 hover:shadow-2xl transition-all duration-300 card-hover flex flex-col border-0 bg-gradient-to-br from-white to-gray-50"
+                  className="p-8 transition-all duration-300 card-tech flex flex-col border-0 shimmer"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <h3 className="text-lg font-bold text-gray-900 flex-1">{tool.name}</h3>
-                    {tool.isReferral && (
-                      <span className="ml-2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-                        Referência
+                    <div className="flex gap-2 ml-2">
+                      <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                        Sugestão
                       </span>
-                    )}
+                      {tool.isReferral && (
+                        <span className="bg-gradient-to-r from-pink-600 to-red-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                          Referral
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <p className="text-sm text-blue-600 font-semibold mb-3">{tool.category}</p>
                   <p className="text-gray-600 mb-6 flex-grow leading-relaxed">
@@ -584,7 +589,7 @@ export default function Home() {
                     href={tool.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center gap-2 transition-colors duration-300"
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold px-4 py-2 rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-purple-700 inline-flex items-center justify-center gap-2 transition-all duration-300 w-full"
                   >
                     Conhecer
                     <ExternalLink size={16} />

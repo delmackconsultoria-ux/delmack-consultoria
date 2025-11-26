@@ -66,3 +66,17 @@
 - [x] Corrigir layout da seção "Sistemas" - deixar limpo com 2 colunas
 - [x] Manter imagens dos sistemas (Strategy e ImobRH)
 - [x] Testar e salvar novo checkpoint
+
+
+## Melhorias de Design Tecnológico
+
+- [x] Alterar título para "Ferramentas de IA" (remover "para PMEs")
+- [x] Adicionar badge de "Sugestões" nas ferramentas de IA
+- [x] Implementar efeitos shimmer em cards
+- [x] Adicionar gradientes mais sofisticados
+- [x] Melhorar animações e efeitos hover
+- [x] Melhorar tipografia e hierarquia visual
+- [x] Adicionar efeitos de brilho e sombra
+- [x] Implementar cores mais vibrantes e modernas
+- [x] Melhorar background da seção
+- [x] Testar e salvar novo checkpoint
