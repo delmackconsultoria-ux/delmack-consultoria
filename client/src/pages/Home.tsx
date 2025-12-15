@@ -152,14 +152,12 @@ export default function Home() {
       description: "Sistema de gestão de vendas para controle de pipeline e clientes",
       status: "Live",
       url: "https://delmack-rei-fwqutmfh.manus.space/",
-      image: "/strategy.png",
     },
     {
-      name: "ImobRH",
-      description: "Sistema de gestão de recursos humanos para imobiliárias",
+      name: "RH Lize",
+      description: "Sistema de gestão de recursos humanos",
       status: "Live",
-      url: "https://8080-ijjvh4zducxcjkgeckt5h-d771589c.manusvm.computer/imobrh-landing.html",
-      image: "/imobRH.png",
+      url: "https://www.rhlize.com.br",
     },
   ];
 
@@ -378,13 +376,7 @@ export default function Home() {
                 key={index}
                 className="p-8 hover:shadow-2xl transition-all duration-300 card-hover overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 flex flex-col"
               >
-                <div className="mb-6 h-48 overflow-hidden rounded-xl image-overlay">
-                  <img
-                    src={system.image}
-                    alt={system.name}
-                    className="w-full h-full object-contain bg-gray-100 transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
+
                 <h3 className="text-2xl font-bold mb-2 text-gray-900">{system.name}</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed flex-grow">{system.description}</p>
                 <div className="flex items-center gap-2 mb-6">
