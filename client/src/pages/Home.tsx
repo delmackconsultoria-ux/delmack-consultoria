@@ -171,7 +171,7 @@ export default function Home() {
   const differentials = [
     {
       title: "Expertise Comprovada",
-      description: "Mais de 10 anos de experiência em consultoria empresarial",
+      description: "Mais de 10 anos de experiência em tecnologia",
       icon: Award,
     },
     {
