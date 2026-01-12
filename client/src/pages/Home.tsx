@@ -148,8 +148,8 @@ export default function Home() {
   // Dados dos sistemas
   const systems = [
     {
-      name: "Sales Management System",
-      description: "Sistema de gestão de vendas para controle de pipeline e clientes",
+      name: "Pipeline de vendas",
+      description: "Sistema de gerenciamento de meta, vendas e comissões para acompanhamento e organização do corretor, gerente e financeiro.",
       status: "Live",
       url: "https://delmack-rei-fwqutmfh.manus.space/",
     },
@@ -260,7 +260,7 @@ export default function Home() {
       {/* Seção Hero */}
       <section
         ref={heroRef}
-        className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="relative bg-gradient-to-br from-blue-800 via-blue-900 to-blue-950 text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
       >
         {/* Efeito de fundo */}
         <div className="absolute inset-0 opacity-10">
@@ -421,11 +421,11 @@ export default function Home() {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
           </div>
 
-          <Card className="p-8 sm:p-12 shadow-xl border-0 bg-gradient-to-br from-white to-gray-50">
+          <Card className="p-8 sm:p-12 shadow-xl border-0 bg-gradient-to-br from-white to-gray-50 max-w-3xl mx-auto">
             <form
               action="https://formspree.io/f/xkoonzpp"
               method="POST"
-              className="max-w-2xl mx-auto space-y-6"
+              className="space-y-6"
             >
               <div>
                 <label className="block text-sm font-semibold text-gray-900 mb-3">
