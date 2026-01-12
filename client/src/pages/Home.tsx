@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { APP_LOGO, APP_TITLE } from "@/const";
 
-const WHATSAPP_NUMBER = "5541995134690";
+const WHATSAPP_NUMBER = "5541984262398";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Delmack%20Consultoria.`;
 
 interface Section {
@@ -158,6 +158,12 @@ export default function Home() {
       description: "Sistema de gestão de recursos humanos",
       status: "Live",
       url: "https://www.rhlize.com.br",
+    },
+    {
+      name: "Alugue-se",
+      description: "Plataforma de aluguel e gestão de imóveis",
+      status: "Live",
+      url: "https://www.aluguese.com",
     },
   ];
 
