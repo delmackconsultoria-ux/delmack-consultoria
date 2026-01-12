@@ -161,7 +161,7 @@ export default function Home() {
     },
     {
       name: "Alugue-se",
-      description: "Plataforma de aluguel e gestão de imóveis",
+      description: "Plataforma de locação que conecta empresas e pessoas reduzindo o desperdício e inspirando novas formas de renda e consumo.",
       status: "Live",
       url: "https://www.aluguese.com",
     },
@@ -423,9 +423,9 @@ export default function Home() {
 
           <Card className="p-8 sm:p-12 shadow-xl border-0 bg-gradient-to-br from-white to-gray-50">
             <form
-              action="https://formspree.io/f/YOUR_FORM_ID"
+              action="https://formspree.io/f/xkoonzpp"
               method="POST"
-              className="space-y-6"
+              className="max-w-2xl mx-auto space-y-6"
             >
               <div>
                 <label className="block text-sm font-semibold text-gray-900 mb-3">
@@ -519,7 +519,7 @@ export default function Home() {
                     className="text-green-600 hover:text-green-800 inline-flex items-center gap-2 font-semibold transition-colors duration-300"
                   >
                     <MessageCircle size={18} />
-                    (41) 99513-4690
+                    (41) 98426-2398
                   </a>
                 </div>
               </div>
