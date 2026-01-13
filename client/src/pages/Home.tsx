@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { APP_LOGO, APP_TITLE } from "@/const";
 
-const WHATSAPP_NUMBER = "5541984262398";
+const WHATSAPP_NUMBER = "554198818621";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Delmack%20Consultoria.`;
 
 interface Section {
@@ -426,17 +426,21 @@ export default function Home() {
           <Card className="p-8 sm:p-12 shadow-xl border-0 bg-gradient-to-br from-white to-gray-50 max-w-3xl mx-auto">
             <form
               ref={formRef}
-              action="https://formspree.io/f/xkoonzpp"
-              method="POST"
               className="space-y-6"
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                setShowConfirmation(true);
-                if (formRef.current) {
-                  formRef.current.submit();
-                  formRef.current.reset();
+                const formData = new FormData(formRef.current!);
+                try {
+                  await fetch("https://formspree.io/f/xkoonzpp", {
+                    method: "POST",
+                    body: formData,
+                  });
+                  setShowConfirmation(true);
+                  formRef.current?.reset();
+                  setTimeout(() => setShowConfirmation(false), 3000);
+                } catch (error) {
+                  console.error("Erro ao enviar formulário", error);
                 }
-                setTimeout(() => setShowConfirmation(false), 3000);
               }}
             >
               <div>
@@ -512,8 +516,8 @@ export default function Home() {
             </form>
 
             {showConfirmation && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn">
-                <div className="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full animate-scaleIn">
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn" onClick={() => setShowConfirmation(false)}>
+                <div className="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full animate-scaleIn" onClick={(e) => e.stopPropagation()}>
                   <div className="text-center">
                     <div className="mb-4 flex justify-center">
                       <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
