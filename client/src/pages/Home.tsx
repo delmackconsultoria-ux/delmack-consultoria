@@ -561,7 +561,7 @@ export default function Home() {
                     className="text-green-600 hover:text-green-800 inline-flex items-center gap-2 font-semibold transition-colors duration-300"
                   >
                     <MessageCircle size={18} />
-                    (41) 98426-2398
+                    (41) 98781-8621
                   </a>
                 </div>
               </div>
