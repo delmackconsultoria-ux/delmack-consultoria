@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { APP_LOGO, APP_TITLE } from "@/const";
 
-const WHATSAPP_NUMBER = "554198818621";
+const WHATSAPP_NUMBER = "554198781862";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Delmack%20Consultoria.`;
 
 interface Section {
