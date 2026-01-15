@@ -19,10 +19,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    <!-- Analytics script will be loaded dynamically -->
+    <script>
+      if (window.location.hostname !== 'localhost') {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = (import.meta.env.VITE_ANALYTICS_ENDPOINT || '') + '/umami';
+        script.setAttribute('data-website-id', import.meta.env.VITE_ANALYTICS_WEBSITE_ID || '');
+        if (script.src.length > 7) document.body.appendChild(script);
+      }
+    </script>
   </body>
 
 </html>
