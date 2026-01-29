@@ -151,21 +151,27 @@ export default function Home() {
   const systems = [
     {
       name: "Pipeline de vendas",
-      description: "Sistema de gerenciamento de meta, vendas e comissões para acompanhamento e organização do corretor, gerente e financeiro.",
+      description: "Sistema de gerenciamento de meta, vendas e comissões para acompanhamento e organização do corretor, gerente e financeiro. Visualize indicadores em tempo real, rankings de desempenho e comissões com precisão.",
       status: "Live",
       url: "https://delmack-rei-fwqutmfh.manus.space/",
+      images: ["/images/pipeline-vendas-dashboard.png", "/images/pipeline-vendas-ranking.png"],
+      benefits: ["Dashboard em tempo real", "Ranking de vendas", "Cálculo automático de comissões", "Relatórios detalhados"]
     },
     {
       name: "RH Lize",
-      description: "Sistema de gestão de recursos humanos",
+      description: "Sistema completo de gestão de recursos humanos com inteligência artificial. Análise de turnover, sugestões de retenção e insights preditivos para otimizar sua equipe.",
       status: "Live",
       url: "https://www.rhlize.com.br",
+      images: ["/images/rhlize-dashboard.png", "/images/rhlize-relatorios-ia.png"],
+      benefits: ["Relatórios com IA", "Análise de Turnover", "Gestão de Ponto", "Sugestões de Retenção"]
     },
     {
       name: "Alugue-se",
       description: "Plataforma de locação que conecta empresas e pessoas reduzindo o desperdício e inspirando novas formas de renda e consumo.",
       status: "Live",
       url: "https://www.aluguese.com",
+      images: [],
+      benefits: []
     },
   ];
 
@@ -376,38 +382,76 @@ export default function Home() {
             <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
               Nossos Sistemas
             </h2>
+            <p className="text-xl text-gray-600 mb-2">Soluções integradas para potencializar seu negócio</p>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-12">
             {systems.map((system, index) => (
-              <Card
-                key={index}
-                className="p-8 hover:shadow-2xl transition-all duration-300 card-hover overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 flex flex-col"
-              >
-
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">{system.name}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed flex-grow">{system.description}</p>
-                <div className="flex items-center gap-2 mb-6">
-                  <span
-                    className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                      system.status === "Live"
-                        ? "bg-green-100 text-green-800 shadow-md"
-                        : "bg-yellow-100 text-yellow-800 shadow-md"
-                    }`}
+              <div key={index} className="grid md:grid-cols-2 gap-8 items-center">
+                {/* Imagens/Carrossel */}
+                {system.images && system.images.length > 0 && (
+                  <div className={`${index % 2 === 1 ? "md:order-2" : ""}`}>
+                    <div className="relative rounded-xl overflow-hidden shadow-2xl h-96 bg-gray-200">
+                      <img
+                        src={system.images[0]}
+                        alt={`${system.name} - Tela 1`}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      {system.images.length > 1 && (
+                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                          {system.images.map((_, imgIndex) => (
+                            <div
+                              key={imgIndex}
+                              className="w-2 h-2 rounded-full bg-white opacity-70 hover:opacity-100 cursor-pointer transition-opacity"
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Conteúdo */}
+                <div className={`${index % 2 === 1 ? "md:order-1" : ""}`}>
+                  <div className="mb-4">
+                    <span
+                      className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 inline-block ${
+                        system.status === "Live"
+                          ? "bg-green-100 text-green-800 shadow-md"
+                          : "bg-yellow-100 text-yellow-800 shadow-md"
+                      }`}
+                    >
+                      {system.status}
+                    </span>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-4 text-gray-900">{system.name}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">{system.description}</p>
+                  
+                  {system.benefits && system.benefits.length > 0 && (
+                    <div className="mb-8">
+                      <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Principais Benefícios</h4>
+                      <ul className="space-y-2">
+                        {system.benefits.map((benefit, bIndex) => (
+                          <li key={bIndex} className="flex items-center gap-3 text-gray-700">
+                            <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                            {benefit}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  
+                  <a
+                    href={system.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl button-glow"
                   >
-                    {system.status}
-                  </span>
+                    Acessar Sistema
+                    <ExternalLink size={16} />
+                  </a>
                 </div>
-                <a
-                  href={system.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full text-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl button-glow inline-flex items-center justify-center gap-2"
-                >
-                  Acessar Sistema
-                  <ExternalLink size={16} />
-                </a>
-              </Card>
+              </div>
             ))}
           </div>
         </div>
