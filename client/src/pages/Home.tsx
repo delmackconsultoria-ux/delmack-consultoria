@@ -32,6 +32,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({});
   const formRef = useRef<HTMLFormElement>(null);
 
   // Seções para navegação
@@ -162,7 +163,7 @@ export default function Home() {
       description: "Sistema completo de gestão de recursos humanos com inteligência artificial. Análise de turnover, sugestões de retenção e insights preditivos para otimizar sua equipe.",
       status: "Live",
       url: "https://www.rhlize.com.br",
-      images: ["/images/rhlize-real-dashboard.png"],
+      images: ["/images/rhlize-real-dashboard.png", "/images/pipeline-vendas-real-homepage.png"],
       benefits: ["Relatórios com IA", "Análise de Turnover", "Gestão de Ponto", "Sugestões de Retenção"]
     },
     {
@@ -395,7 +396,7 @@ export default function Home() {
                   {system.images && system.images.length > 0 && (
                     <div className="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                       <img
-                        src={system.images[0]}
+                        src={system.images[currentImageIndex[index] || 0]}
                         alt={`${system.name} - Preview`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
@@ -420,7 +421,8 @@ export default function Home() {
                           {system.images.map((_, imgIndex) => (
                             <div
                               key={imgIndex}
-                              className="w-2 h-2 rounded-full bg-white shadow-md opacity-80"
+                              onClick={() => setCurrentImageIndex(prev => ({ ...prev, [index]: imgIndex }))}
+                              className={`w-2 h-2 rounded-full shadow-md cursor-pointer transition-all ${(currentImageIndex[index] || 0) === imgIndex ? "bg-white w-6" : "bg-white opacity-60"}`}
                             />
                           ))}
                         </div>
