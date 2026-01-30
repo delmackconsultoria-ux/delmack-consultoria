@@ -376,80 +376,87 @@ export default function Home() {
       </section>
 
       {/* Seção Sistemas */}
-      <section ref={systemsRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
+      <section ref={systemsRef} className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl sm:text-6xl font-bold mb-6 gradient-text">
               Nossos Sistemas
             </h2>
-            <p className="text-xl text-gray-600 mb-2">Soluções integradas para potencializar seu negócio</p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Soluções integradas e inteligentes para potencializar seu negócio</p>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
           </div>
-          <div className="space-y-12">
+          
+          <div className="grid md:grid-cols-3 gap-8">
             {systems.map((system, index) => (
-              <div key={index} className="grid md:grid-cols-2 gap-8 items-center">
-                {/* Imagens/Carrossel */}
-                {system.images && system.images.length > 0 && (
-                  <div className={`${index % 2 === 1 ? "md:order-2" : ""}`}>
-                    <div className="relative rounded-xl overflow-hidden shadow-2xl h-96 bg-gray-200">
+              <div key={index} className="group">
+                {/* Card Container */}
+                <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
+                  {/* Imagem */}
+                  {system.images && system.images.length > 0 && (
+                    <div className="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                       <img
                         src={system.images[0]}
-                        alt={`${system.name} - Tela 1`}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        alt={`${system.name} - Preview`}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Status Badge */}
+                      <div className="absolute top-4 right-4">
+                        <span
+                          className={`px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
+                            system.status === "Live"
+                              ? "bg-green-500 text-white"
+                              : "bg-yellow-500 text-white"
+                          }`}
+                        >
+                          {system.status}
+                        </span>
+                      </div>
+                      
+                      {/* Indicadores de Imagens */}
                       {system.images.length > 1 && (
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
                           {system.images.map((_, imgIndex) => (
                             <div
                               key={imgIndex}
-                              className="w-2 h-2 rounded-full bg-white opacity-70 hover:opacity-100 cursor-pointer transition-opacity"
+                              className="w-2 h-2 rounded-full bg-white shadow-md opacity-80"
                             />
                           ))}
                         </div>
                       )}
                     </div>
-                  </div>
-                )}
-                
-                {/* Conteúdo */}
-                <div className={`${index % 2 === 1 ? "md:order-1" : ""}`}>
-                  <div className="mb-4">
-                    <span
-                      className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 inline-block ${
-                        system.status === "Live"
-                          ? "bg-green-100 text-green-800 shadow-md"
-                          : "bg-yellow-100 text-yellow-800 shadow-md"
-                      }`}
-                    >
-                      {system.status}
-                    </span>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-4 text-gray-900">{system.name}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">{system.description}</p>
-                  
-                  {system.benefits && system.benefits.length > 0 && (
-                    <div className="mb-8">
-                      <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">Principais Benefícios</h4>
-                      <ul className="space-y-2">
-                        {system.benefits.map((benefit, bIndex) => (
-                          <li key={bIndex} className="flex items-center gap-3 text-gray-700">
-                            <div className="w-2 h-2 rounded-full bg-blue-600"></div>
-                            {benefit}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
                   )}
                   
-                  <a
-                    href={system.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl button-glow"
-                  >
-                    Acessar Sistema
-                    <ExternalLink size={16} />
-                  </a>
+                  {/* Conteúdo */}
+                  <div className="p-8 flex flex-col flex-grow">
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{system.name}</h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed flex-grow text-sm">{system.description}</p>
+                    
+                    {system.benefits && system.benefits.length > 0 && (
+                      <div className="mb-8">
+                        <h4 className="text-xs font-bold text-gray-900 mb-4 uppercase tracking-widest">Benefícios</h4>
+                        <ul className="space-y-2">
+                          {system.benefits.map((benefit, bIndex) => (
+                            <li key={bIndex} className="flex items-start gap-3 text-gray-700 text-sm">
+                              <div className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 flex-shrink-0"></div>
+                              <span>{benefit}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    
+                    <a
+                      href={system.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-semibold shadow-md hover:shadow-lg w-full button-glow"
+                    >
+                      Acessar Sistema
+                      <ExternalLink size={16} />
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
