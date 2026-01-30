@@ -394,7 +394,7 @@ export default function Home() {
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
                   {/* Imagem */}
                   {system.images && system.images.length > 0 && (
-                    <div className="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                    <div className="relative h-80 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                       <img
                         src={system.images[currentImageIndex[index] || 0]}
                         alt={`${system.name} - Preview`}
