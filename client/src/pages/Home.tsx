@@ -154,7 +154,7 @@ export default function Home() {
       description: "Sistema de gerenciamento de meta, vendas e comissões para acompanhamento e organização do corretor, gerente e financeiro. Visualize indicadores em tempo real, rankings de desempenho e comissões com precisão.",
       status: "Live",
       url: "https://delmack-rei-fwqutmfh.manus.space/",
-      images: ["/images/pipeline-vendas-dashboard.png", "/images/pipeline-vendas-ranking.png"],
+      images: ["/images/pipeline-vendas-real-dashboard.webp", "/images/pipeline-vendas-real-indicadores.webp", "/images/pipeline-vendas-real-ranking.webp"],
       benefits: ["Dashboard em tempo real", "Ranking de vendas", "Cálculo automático de comissões", "Relatórios detalhados"]
     },
     {
@@ -162,7 +162,7 @@ export default function Home() {
       description: "Sistema completo de gestão de recursos humanos com inteligência artificial. Análise de turnover, sugestões de retenção e insights preditivos para otimizar sua equipe.",
       status: "Live",
       url: "https://www.rhlize.com.br",
-      images: ["/images/rhlize-dashboard.png", "/images/rhlize-relatorios-ia.png"],
+      images: ["/images/rhlize-real-dashboard.webp", "/images/rhlize-real-relatorios-ia.webp"],
       benefits: ["Relatórios com IA", "Análise de Turnover", "Gestão de Ponto", "Sugestões de Retenção"]
     },
     {
