@@ -98,66 +98,50 @@ export default function Home() {
     {
       name: "Claude",
       description: "IA avançada para análise complexa e redação profissional",
-      category: "Assistente",
+      category: "Análise",
       url: "https://claude.ai",
+    },
+    {
+      name: "Gemini",
+      description: "Modelo multimodal do Google para análise e criação de conteúdo",
+      category: "Multimodal",
+      url: "https://gemini.google.com",
     },
     {
       name: "Midjourney",
       description: "Geração de imagens de alta qualidade com IA",
-      category: "Imagem",
-      url: "https://www.midjourney.com",
+      category: "Imagens",
+      url: "https://midjourney.com",
     },
     {
-      name: "DALL-E",
-      description: "Criação de imagens personalizadas a partir de descrições",
-      category: "Imagem",
-      url: "https://openai.com/dall-e-3",
-    },
-    {
-      name: "Manus",
-      description: "Plataforma de automação e desenvolvimento de aplicações",
-      category: "Automação",
-      url: "https://manus.im/invitation/Y1AQAAK2FAJXU",
-      isReferral: true,
-    },
-    {
-      name: "Jasper",
-      description: "Ferramenta de escrita com IA para marketing e conteúdo",
-      category: "Conteúdo",
-      url: "https://www.jasper.ai",
-    },
-    {
-      name: "Synthesia",
-      description: "Criação de vídeos com avatares de IA",
-      category: "Vídeo",
-      url: "https://www.synthesia.io",
-    },
-    {
-      name: "Typeform",
-      description: "Criação de formulários inteligentes com IA",
-      category: "Formulários",
-      url: "https://www.typeform.com",
+      name: "Perplexity AI",
+      description: "Mecanismo de busca com IA para pesquisa e análise",
+      category: "Pesquisa",
+      url: "https://perplexity.ai",
     },
   ];
 
-  // Filtrar ferramentas de IA baseado na busca
-  const filteredTools = iaTools.filter(
-    (tool) =>
-      tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      tool.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      tool.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Dados dos diferenciais
+  const differentials = [
+    {
+      title: "Expertise Comprovada",
+      description: "Mais de 10 anos de experiência em consultoria empresarial e transformação digital",
+      icon: Award,
+    },
+    {
+      title: "Soluções Personalizadas",
+      description: "Cada projeto é único. Desenvolvemos estratégias sob medida para seu negócio",
+      icon: Lightbulb,
+    },
+    {
+      title: "Tecnologia de Ponta",
+      description: "Utilizamos as melhores ferramentas e metodologias do mercado",
+      icon: Cpu,
+    },
+  ];
 
   // Dados dos sistemas
   const systems = [
-    {
-      name: "Pipeline de vendas",
-      description: "Sistema de gerenciamento de meta, vendas e comissões para acompanhamento e organização do corretor, gerente e financeiro. Visualize indicadores em tempo real, rankings de desempenho e comissões com precisão.",
-      status: "Live",
-      url: "https://delmack-rei-fwqutmfh.manus.space/",
-      images: ["/images/pipeline-vendas-real-indicadores.png", "/images/pipeline-vendas-real-ranking.png", "/images/pipeline-vendas-real-relatorios.png"],
-      benefits: ["Dashboard em tempo real", "Ranking de vendas", "Cálculo automático de comissões", "Relatórios detalhados"]
-    },
     {
       name: "RH Lize",
       description: "Sistema completo de gestão de recursos humanos com inteligência artificial. Análise de turnover, sugestões de retenção e insights preditivos para otimizar sua equipe.",
@@ -167,83 +151,73 @@ export default function Home() {
       benefits: ["Relatórios com IA", "Análise de Turnover", "Gestão de Ponto", "Sugestões de Retenção"]
     },
     {
-      name: "Alugue-se",
-      description: "Plataforma de locação que conecta empresas e pessoas reduzindo o desperdício e inspirando novas formas de renda e consumo.",
+      name: "Pipeline de Vendas",
+      description: "Plataforma inteligente para gestão de vendas com indicadores em tempo real. Acompanhe suas metas, comissões e desempenho da equipe com dashboards interativos.",
       status: "Live",
-      url: "https://www.aluguese.com",
+      url: "https://delmack-rei-fwqutmfh.manus.space/",
+      images: ["/images/pipeline-vendas-real-indicadores.png", "/images/pipeline-vendas-real-ranking.png", "/images/pipeline-vendas-real-homepage.png"],
+      benefits: ["Indicadores em Tempo Real", "Gestão de Comissões", "Ranking de Vendas", "Relatórios Detalhados"]
+    },
+    {
+      name: "Alugue-se",
+      description: "Solução completa para gestão de aluguéis e propriedades. Automatize contratos, pagamentos e comunicação com inquilinos em uma única plataforma.",
+      status: "Em Breve",
+      url: "#",
       images: [],
-      benefits: []
-    },
-  ];
-
-  // Diferenciais da empresa
-  const differentials = [
-    {
-      title: "Expertise Comprovada",
-      description: "Mais de 10 anos de experiência em tecnologia",
-      icon: Award,
-    },
-    {
-      title: "Soluções Personalizadas",
-      description: "Cada solução é adaptada às necessidades específicas do seu negócio",
-      icon: Lightbulb,
-    },
-    {
-      title: "Tecnologia de Ponta",
-      description: "Utilizamos as melhores ferramentas e tecnologias disponíveis",
-      icon: Cpu,
+      benefits: ["Gestão de Contratos", "Controle de Pagamentos", "Comunicação Automatizada", "Relatórios Financeiros"]
     },
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Navegação */}
-      <nav className="sticky top-0 z-50 bg-white shadow-lg">
+      <nav className="fixed top-0 w-full bg-white shadow-md z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex items-center">
-              <img src="/delmack-logo.png" alt="Delmack" className="h-12 w-auto" />
+            <div className="flex items-center gap-3">
+              <img src={APP_LOGO} alt="Logo" className="h-8 w-8" />
+              <span className="font-bold text-gray-900 hidden sm:inline">{APP_TITLE}</span>
             </div>
 
             {/* Menu Desktop */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex items-center gap-8">
               {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.ref)}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300"
+                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                 >
                   {section.title}
                 </button>
               ))}
             </div>
 
-            {/* WhatsApp Button Desktop */}
-            <div className="hidden md:block">
+            {/* Botão WhatsApp e Menu Mobile */}
+            <div className="flex items-center gap-4">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-all duration-300 button-glow"
+                className="hidden sm:flex bg-green-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-600 transition-colors items-center gap-2"
               >
                 <MessageCircle size={18} />
                 WhatsApp
               </a>
-            </div>
 
-            {/* Menu Mobile */}
-            <button
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              {/* Menu Mobile */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden text-gray-700 hover:text-blue-600"
+              >
+                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
 
-          {/* Menu Mobile Expandido */}
+          {/* Menu Mobile Dropdown */}
           {mobileMenuOpen && (
-            <div className="md:hidden pb-4 border-t animate-fade-in">
+            <div className="md:hidden pb-4 space-y-2 border-t border-gray-200">
               {sections.map((section) => (
                 <button
                   key={section.id}
@@ -351,24 +325,15 @@ export default function Home() {
               return (
                 <Card
                   key={index}
-                  className="p-8 hover:shadow-2xl transition-all duration-300 card-hover border-l-4 border-blue-600 overflow-hidden bg-gradient-to-br from-white to-gray-50 flex flex-col"
+                  className="p-6 hover:shadow-xl transition-all duration-300 card-hover border-0 overflow-hidden"
                 >
-                  <div className="mb-6 flex justify-center">
-                    <div className="p-4 bg-blue-100 rounded-full">
-                      <IconComponent size={40} className="text-blue-600" />
+                  <div className="mb-4 flex justify-center">
+                    <div className="p-3 bg-blue-100 rounded-full">
+                      <IconComponent size={32} className="text-blue-600" />
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold mb-3 text-gray-900 text-center">{service.title}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed text-center flex-grow">{service.description}</p>
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center gap-2 transition-colors duration-300 justify-center"
-                  >
-                    Saiba mais
-                    <ArrowRight size={16} />
-                  </a>
+                  <h3 className="text-lg font-bold mb-2 text-gray-900 text-center">{service.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed text-center">{service.description}</p>
                 </Card>
               );
             })}
@@ -377,20 +342,17 @@ export default function Home() {
       </section>
 
       {/* Seção Sistemas */}
-      <section ref={systemsRef} className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl sm:text-6xl font-bold mb-6 gradient-text">
+      <section ref={systemsRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
               Nossos Sistemas
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Soluções integradas e inteligentes para potencializar seu negócio</p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
           </div>
-          
           <div className="grid md:grid-cols-3 gap-8">
             {systems.map((system, index) => (
               <div key={index} className="group">
-                {/* Card Container */}
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
                   {/* Imagem */}
                   {system.images && system.images.length > 0 && (
@@ -401,19 +363,6 @@ export default function Home() {
                         className="w-full h-full object-contain object-center p-4 group-hover:scale-105 transition-transform duration-700 bg-white"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      
-                      {/* Status Badge */}
-                      <div className="absolute top-4 right-4">
-                        <span
-                          className={`px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
-                            system.status === "Live"
-                              ? "bg-green-500 text-white"
-                              : "bg-yellow-500 text-white"
-                          }`}
-                        >
-                          {system.status}
-                        </span>
-                      </div>
                       
                       {/* Indicadores de Imagens */}
                       {system.images.length > 1 && (
@@ -478,7 +427,7 @@ export default function Home() {
 
       {/* Seção Contato */}
       <section ref={contactRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
               Entre em Contato
@@ -486,150 +435,150 @@ export default function Home() {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
           </div>
 
-          <Card className="p-8 sm:p-12 shadow-xl border-0 bg-gradient-to-br from-white to-gray-50 max-w-3xl mx-auto">
-            <form
-              ref={formRef}
-              className="space-y-6"
-              onSubmit={async (e) => {
-                e.preventDefault();
-                const formData = new FormData(formRef.current!);
-                try {
-                  await fetch("https://formspree.io/f/xkoonzpp", {
-                    method: "POST",
-                    body: formData,
-                  });
-                  setShowConfirmation(true);
-                  formRef.current?.reset();
-                  setTimeout(() => setShowConfirmation(false), 3000);
-                } catch (error) {
-                  setShowConfirmation(true);
-                  formRef.current?.reset();
-                  setTimeout(() => setShowConfirmation(false), 3000);
-                }
-              }}
-            >
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Nome
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                  placeholder="Seu nome"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                  placeholder="seu@email.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Telefone
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                  placeholder="(41) 99999-9999"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Assunto
-                </label>
-                <input
-                  type="text"
-                  name="subject"
-                  required
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                  placeholder="Assunto da mensagem"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
-                  Mensagem
-                </label>
-                <textarea
-                  name="message"
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300 resize-none"
-                  placeholder="Sua mensagem aqui..."
-                />
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-lg font-bold hover:from-green-600 hover:to-green-700 hover:shadow-lg transition-all duration-300 button-glow"
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <Card className="p-8 sm:p-12 shadow-xl border-0 bg-gradient-to-br from-white to-gray-50">
+              <form
+                ref={formRef}
+                className="space-y-6"
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const formData = new FormData(formRef.current!);
+                  try {
+                    await fetch("https://formspree.io/f/xkoonzpp", {
+                      method: "POST",
+                      body: formData,
+                    });
+                    setShowConfirmation(true);
+                    formRef.current?.reset();
+                    setTimeout(() => setShowConfirmation(false), 3000);
+                  } catch (error) {
+                    setShowConfirmation(true);
+                    formRef.current?.reset();
+                    setTimeout(() => setShowConfirmation(false), 3000);
+                  }
+                }}
               >
-                Fale com Nosso Time
-              </Button>
-            </form>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                    Nome
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
+                    placeholder="Seu nome"
+                  />
+                </div>
 
-            {showConfirmation && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn" onClick={() => setShowConfirmation(false)}>
-                <div className="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full animate-scaleIn" onClick={(e) => e.stopPropagation()}>
-                  <div className="text-center">
-                    <div className="mb-4 flex justify-center">
-                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-                        <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
+                    placeholder="seu@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                    Telefone
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
+                    placeholder="(41) 99999-9999"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                    Assunto
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
+                    placeholder="Assunto da mensagem"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                    Mensagem
+                  </label>
+                  <textarea
+                    name="message"
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300 resize-none"
+                    placeholder="Sua mensagem aqui..."
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-lg font-bold hover:from-green-600 hover:to-green-700 hover:shadow-lg transition-all duration-300 button-glow"
+                >
+                  Fale com Nosso Time
+                </Button>
+              </form>
+
+              {showConfirmation && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn" onClick={() => setShowConfirmation(false)}>
+                  <div className="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full animate-scaleIn" onClick={(e) => e.stopPropagation()}>
+                    <div className="text-center">
+                      <div className="mb-4 flex justify-center">
+                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                          <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                        </div>
                       </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">Mensagem Enviada!</h3>
+                      <p className="text-gray-600 mb-6">Obrigado por entrar em contato. Responderemos em breve.</p>
+                      <button
+                        onClick={() => setShowConfirmation(false)}
+                        className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                      >
+                        Fechar
+                      </button>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Mensagem Enviada!</h3>
-                    <p className="text-gray-600 mb-6">Obrigado por entrar em contato. Responderemos em breve.</p>
-                    <button
-                      onClick={() => setShowConfirmation(false)}
-                      className="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300"
-                    >
-                      Fechar
-                    </button>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </Card>
 
-            <div className="mt-10 pt-10 border-t-2 border-gray-200">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="text-center md:text-left">
-                  <h3 className="font-bold text-gray-900 mb-3 text-lg">Email</h3>
-                  <a
-                    href="mailto:delmackconsultoria@gmail.com"
-                    className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300"
-                  >
-                    delmackconsultoria@gmail.com
-                  </a>
-                </div>
-                <div className="text-center md:text-left">
-                  <h3 className="font-bold text-gray-900 mb-3 text-lg">WhatsApp</h3>
-                  <a
-                    href={WHATSAPP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-600 hover:text-green-800 inline-flex items-center gap-2 font-semibold transition-colors duration-300"
-                  >
-                    <MessageCircle size={18} />
-                    55 (41) 98781-8621
-                  </a>
-                </div>
-              </div>
+            <div className="space-y-8">
+              <Card className="p-8 shadow-xl border-0 bg-gradient-to-br from-blue-50 to-white">
+                <h3 className="font-bold text-gray-900 mb-3 text-lg">Email</h3>
+                <a
+                  href="mailto:delmackconsultoria@gmail.com"
+                  className="text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300"
+                >
+                  delmackconsultoria@gmail.com
+                </a>
+              </Card>
+              <Card className="p-8 shadow-xl border-0 bg-gradient-to-br from-green-50 to-white">
+                <h3 className="font-bold text-gray-900 mb-3 text-lg">WhatsApp</h3>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-600 hover:text-green-800 inline-flex items-center gap-2 font-semibold transition-colors duration-300"
+                >
+                  <MessageCircle size={18} />
+                  55 (41) 98781-8621
+                </a>
+              </Card>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
 
@@ -646,65 +595,27 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Barra de Busca */}
-          <div className="mb-12">
-            <div className="relative max-w-md mx-auto">
-              <Search
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
-                size={20}
-              />
-              <Input
-                type="text"
-                placeholder="Buscar ferramentas..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-12 py-3 w-full border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-              />
-            </div>
-          </div>
-
-          {/* Grid de Ferramentas */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredTools.length > 0 ? (
-              filteredTools.map((tool, index) => (
-                <Card
-                  key={index}
-                  className="p-8 transition-all duration-300 card-tech flex flex-col border-0 shimmer"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-lg font-bold text-gray-900 flex-1">{tool.name}</h3>
-                    <div className="flex gap-2 ml-2">
-                      <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-                        Sugestão
-                      </span>
-                      {tool.isReferral && (
-                        <span className="bg-gradient-to-r from-pink-600 to-red-600 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
-                          Referral
-                        </span>
-                      )}
-                    </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {iaTools.map((tool, index) => (
+              <a
+                key={index}
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <Card className="p-6 hover:shadow-xl transition-all duration-300 card-hover border-0 overflow-hidden h-full">
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{tool.name}</h3>
+                    <ArrowRight size={20} className="text-blue-600 opacity-0 group-hover:opacity-100 transition-all" />
                   </div>
-                  <p className="text-sm text-blue-600 font-semibold mb-3">{tool.category}</p>
-                  <p className="text-gray-600 mb-6 flex-grow leading-relaxed">
-                    {tool.description}
-                  </p>
-                  <a
-                    href={tool.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold px-4 py-2 rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-purple-700 inline-flex items-center justify-center gap-2 transition-all duration-300 w-full"
-                  >
-                    Conhecer
-                    <ExternalLink size={16} />
-                  </a>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">{tool.description}</p>
+                  <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
+                    {tool.category}
+                  </span>
                 </Card>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-12 text-gray-500">
-                <Search size={48} className="mx-auto mb-4 opacity-50" />
-                <p className="text-lg">Nenhuma ferramenta encontrada para "{searchTerm}"</p>
-              </div>
-            )}
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -714,47 +625,26 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 className="font-bold text-lg mb-4">Delmack Consultoria</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Transformando negócios através de consultoria estratégica e tecnologia
-              </p>
+              <h3 className="font-bold mb-4 text-lg">Delmack Consultoria</h3>
+              <p className="text-gray-400 text-sm">Transformando negócios através de estratégia, tecnologia e inovação.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg mb-4">Navegação Rápida</h3>
-              <ul className="space-y-2 text-gray-400">
-                {sections.map((section) => (
-                  <li key={section.id}>
-                    <button
-                      onClick={() => scrollToSection(section.ref)}
-                      className="hover:text-white transition-colors duration-300"
-                    >
-                      {section.title}
-                    </button>
-                  </li>
-                ))}
+              <h3 className="font-bold mb-4 text-lg">Links Rápidos</h3>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><a href="#" className="hover:text-white transition-colors">Sobre</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Serviços</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Sistemas</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contato</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold text-lg mb-4">Contato</h3>
-              <p className="text-gray-400 mb-2">
-                Email: delmackconsultoria@gmail.com
-              </p>
-              <p className="text-gray-400 mb-4">CNPJ: 61.887.193/0001-39</p>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-green-400 hover:text-green-300 inline-flex items-center gap-2 transition-colors duration-300"
-              >
-                <MessageCircle size={18} />
-                WhatsApp
-              </a>
+              <h3 className="font-bold mb-4 text-lg">Contato</h3>
+              <p className="text-gray-400 text-sm mb-2">Email: delmackconsultoria@gmail.com</p>
+              <p className="text-gray-400 text-sm">WhatsApp: 55 (41) 98781-8621</p>
             </div>
           </div>
-          <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
-            <p>
-              &copy; 2025 Delmack Consultoria. Todos os direitos reservados.
-            </p>
+          <div className="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2026 Delmack Consultoria. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
