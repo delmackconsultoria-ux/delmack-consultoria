@@ -292,14 +292,14 @@ export default function Home() {
               className="bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition-all duration-300 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl button-glow"
             >
               <MessageCircle size={20} />
-              Consultoria Gratuita
+              Começar Transformação Digital
             </a>
             <button
               onClick={() => scrollToSection(servicesRef)}
               className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
             >
               <Search size={20} />
-              Conheça Nossos Serviços
+              Ver Benefícios
             </button>
           </div>
         </div>
@@ -453,9 +453,19 @@ export default function Home() {
                       href={system.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-semibold shadow-md hover:shadow-lg w-full button-glow"
+                      className={`inline-flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg transition-all duration-300 font-semibold shadow-md hover:shadow-lg w-full button-glow ${
+                        system.name === "RH Lize"
+                          ? "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                          : system.name === "Pipeline de Vendas"
+                          ? "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+                          : "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                      }`}
                     >
-                      Acessar Sistema
+                      {system.name === "RH Lize"
+                        ? "Começar agora"
+                        : system.name === "Pipeline de Vendas"
+                        ? "Solicitar Demo"
+                        : "Conhecer Plataforma"}
                       <ExternalLink size={16} />
                     </a>
                   </div>
@@ -564,9 +574,9 @@ export default function Home() {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-4 rounded-lg font-bold hover:shadow-lg transition-all duration-300 button-glow"
+                className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-lg font-bold hover:from-green-600 hover:to-green-700 hover:shadow-lg transition-all duration-300 button-glow"
               >
-                Enviar Mensagem
+                Fale com Nosso Time
               </Button>
             </form>
 
