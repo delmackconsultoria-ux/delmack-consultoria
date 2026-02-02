@@ -402,19 +402,7 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       
-                      {/* Status Badge */}
-                      <div className="absolute top-4 right-4">
-                        <span
-                          className={`px-3 py-1 rounded-full text-xs font-bold shadow-lg ${
-                            system.status === "Live"
-                              ? "bg-green-500 text-white"
-                              : "bg-yellow-500 text-white"
-                          }`}
-                        >
-                          {system.status}
-                        </span>
-                      </div>
-                      
+
                       {/* Indicadores de Imagens */}
                       {system.images.length > 1 && (
                         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
