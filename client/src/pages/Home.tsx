@@ -155,7 +155,7 @@ export default function Home() {
       description: "Sistema de gerenciamento de meta, vendas e comissões para acompanhamento e organização do corretor, gerente e financeiro. Visualize indicadores em tempo real, rankings de desempenho e comissões com precisão.",
       status: "Live",
       url: "https://delmack-rei-fwqutmfh.manus.space/",
-      images: ["/images/pipeline-vendas-real-indicadores.png"],
+      images: ["/images/pipeline-vendas-real-indicadores.png", "/images/pipeline-vendas-real-ranking.png", "/images/pipeline-vendas-real-relatorios.png"],
       benefits: ["Dashboard em tempo real", "Ranking de vendas", "Cálculo automático de comissões", "Relatórios detalhados"]
     },
     {
