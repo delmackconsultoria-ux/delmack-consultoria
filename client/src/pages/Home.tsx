@@ -163,7 +163,7 @@ export default function Home() {
       description: "Sistema completo de gestão de recursos humanos com inteligência artificial. Análise de turnover, sugestões de retenção e insights preditivos para otimizar sua equipe.",
       status: "Live",
       url: "https://www.rhlize.com.br",
-      images: ["/images/rhlize-real-dashboard.png"],
+      images: ["/images/rhlize-real-painel.png", "/images/rhlize-real-dashboard.png"],
       benefits: ["Relatórios com IA", "Análise de Turnover", "Gestão de Ponto", "Sugestões de Retenção"]
     },
     {
