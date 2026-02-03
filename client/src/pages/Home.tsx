@@ -155,7 +155,7 @@ export default function Home() {
       description: "Sistema de gerenciamento de meta, vendas e comissões para acompanhamento e organização do corretor, gerente e financeiro. Visualize indicadores em tempo real, rankings de desempenho e comissões com precisão.",
       status: "Live",
       url: "https://delmack-rei-fwqutmfh.manus.space/",
-      images: ["/images/pipeline-vendas-real-indicadores.png", "/images/pipeline-vendas-real-ranking.png", "/images/pipeline-vendas-real-relatorios.png"],
+      images: ["/images/pipeline-vendas-nova-venda.png"],
       benefits: ["Dashboard em tempo real", "Ranking de vendas", "Cálculo automático de comissões", "Relatórios detalhados"]
     },
     {
@@ -163,7 +163,7 @@ export default function Home() {
       description: "Sistema completo de gestão de recursos humanos com inteligência artificial. Análise de turnover, sugestões de retenção e insights preditivos para otimizar sua equipe.",
       status: "Live",
       url: "https://www.rhlize.com.br",
-      images: ["/images/rhlize-real-painel.png", "/images/rhlize-real-central-ajuda.png"],
+      images: ["/images/rhlize-painel-gestao.png"],
       benefits: ["Relatórios com IA", "Análise de Turnover", "Gestão de Ponto", "Sugestões de Retenção"]
     },
     {
@@ -171,8 +171,16 @@ export default function Home() {
       description: "Plataforma de locação que conecta empresas e pessoas reduzindo o desperdício e inspirando novas formas de renda e consumo.",
       status: "Live",
       url: "https://www.aluguese.com",
-      images: [],
-      benefits: []
+      images: ["/images/alugue-se-analytics.png"],
+      benefits: ["Analytics avançado", "Gestão de parceiros", "Histórico de transações", "Relatórios de receita"]
+    },
+    {
+      name: "Gerenciamento de orçamentos e pedidos",
+      description: "Sistema desenvolvido para Teckplast que gerencia orçamentos e pedidos com calendário integrado. Acompanhe todas as ordens, visualize cronogramas e mantenha controle total sobre seus projetos.",
+      status: "Live",
+      url: "#",
+      images: ["/images/gerenciamento-orcamentos-pedidos.png"],
+      benefits: ["Calendário de ordens", "Gestão de orçamentos", "Controle de pedidos", "Relatórios de projetos"]
     },
   ];
 
@@ -269,12 +277,13 @@ export default function Home() {
       {/* Seção Hero */}
       <section
         ref={heroRef}
-        className="relative bg-gradient-to-br from-blue-800 via-blue-900 to-blue-950 text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="relative bg-gradient-to-br from-blue-800 via-blue-900 to-blue-950 text-white py-32 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-screen flex items-center"
       >
-        {/* Efeito de fundo */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+        {/* Efeito de fundo animado com gradiente */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl" style={{animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 1s'}}></div>
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl" style={{animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 2s'}}></div>
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -437,25 +446,28 @@ export default function Home() {
                       </div>
                     )}
                     
-                    <a
-                      href={system.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg transition-all duration-300 font-semibold shadow-md hover:shadow-lg w-full button-glow ${
-                        system.name === "RH Lize"
-                          ? "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
-                          : system.name === "Pipeline de Vendas"
-                          ? "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
-                          : "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
-                      }`}
-                    >
-                      {system.name === "RH Lize"
-                        ? "Começar agora"
-                        : system.name === "Pipeline de Vendas"
-                        ? "Solicitar Demo"
-                        : "Conhecer Plataforma"}
-                      <ExternalLink size={16} />
-                    </a>
+                    {system.name === "Pipeline de Vendas" ? (
+                      <button disabled className="inline-flex items-center justify-center gap-2 text-gray-500 px-6 py-3 rounded-lg font-semibold shadow-md w-full bg-gray-300 cursor-not-allowed opacity-60">
+                        Solicitar Demo
+                        <ExternalLink size={16} />
+                      </button>
+                    ) : (
+                      <a
+                        href={system.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center justify-center gap-2 text-white px-6 py-3 rounded-lg transition-all duration-300 font-semibold shadow-md hover:shadow-lg w-full button-glow ${
+                          system.name === "RH Lize"
+                            ? "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                            : "bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                        }`}
+                      >
+                        {system.name === "RH Lize"
+                          ? "Começar agora"
+                          : "Conhecer Plataforma"}
+                        <ExternalLink size={16} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
