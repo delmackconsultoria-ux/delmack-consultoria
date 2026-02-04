@@ -403,11 +403,11 @@ export default function Home() {
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
                   {/* Imagem */}
                   {system.images && system.images.length > 0 && (
-                    <div className="relative h-80 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                    <div className="relative bg-white overflow-hidden flex items-center justify-center" style={{aspectRatio: '940/430'}}>
                       <img
                         src={system.images[currentImageIndex[index] || 0]}
                         alt={`${system.name} - Preview`}
-                        className="w-full h-full object-contain object-center p-4 group-hover:scale-105 transition-transform duration-700 bg-white"
+                        className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       
