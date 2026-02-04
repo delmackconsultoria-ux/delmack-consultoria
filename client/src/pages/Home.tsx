@@ -403,11 +403,12 @@ export default function Home() {
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
                   {/* Imagem */}
                   {system.images && system.images.length > 0 && (
-                    <div className="relative bg-white overflow-hidden flex items-center justify-center" style={{aspectRatio: '940/430'}}>
+                    <div className="relative bg-white overflow-hidden flex items-center justify-center" style={{aspectRatio: 'clamp(1, 940/430, 1)'}}>
                       <img
+                        key={currentImageIndex[index] || 0}
                         src={system.images[currentImageIndex[index] || 0]}
                         alt={`${system.name} - Preview`}
-                        className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-700 animate-carousel-fade"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       
