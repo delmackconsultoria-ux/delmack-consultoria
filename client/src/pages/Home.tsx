@@ -155,7 +155,7 @@ export default function Home() {
       description: "Sistema de gerenciamento de meta, vendas e comissões para acompanhamento e organização do corretor, gerente e financeiro. Visualize indicadores em tempo real, rankings de desempenho e comissões com precisão.",
       status: "Live",
       url: "https://delmack-rei-fwqutmfh.manus.space/",
-      images: ["/images/pipeline-1.png", "/images/pipeline-2.png", "/images/pipeline-3.png"],
+      images: ["/images/systems/pipeline-1.png", "/images/systems/pipeline-2.png", "/images/systems/pipeline-3.png"],
       benefits: ["Dashboard em tempo real", "Ranking de vendas", "Cálculo automático de comissões", "Relatórios detalhados"]
     },
     {
@@ -163,7 +163,7 @@ export default function Home() {
       description: "Sistema completo de gestão de recursos humanos com inteligência artificial. Análise de turnover, sugestões de retenção e insights preditivos para otimizar sua equipe.",
       status: "Live",
       url: "https://www.rhlize.com.br",
-      images: ["/images/rhlize-1.png", "/images/rhlize-2.png", "/images/rhlize-3.png"],
+      images: ["/images/systems/rhlize-1.png", "/images/systems/rhlize-2.png", "/images/systems/rhlize-3.png"],
       benefits: ["Relatórios com IA", "Análise de Turnover", "Gestão de Ponto", "Sugestões de Retenção"]
     },
     {
@@ -171,7 +171,7 @@ export default function Home() {
       description: "Plataforma de locação que conecta empresas e pessoas reduzindo o desperdício e inspirando novas formas de renda e consumo.",
       status: "Live",
       url: "https://www.aluguese.com",
-      images: ["/images/alugue-1.png", "/images/alugue-2.png", "/images/alugue-3.png"],
+      images: ["/images/systems/alugue-1.png", "/images/systems/alugue-2.png", "/images/systems/alugue-3.png"],
       benefits: ["Analytics avançado", "Gestão de parceiros", "Histórico de transações", "Relatórios de receita"]
     },
     {
@@ -179,7 +179,7 @@ export default function Home() {
       description: "Sistema desenvolvido para Teckplast que gerencia orçamentos e pedidos com calendário integrado. Acompanhe todas as ordens, visualize cronogramas e mantenha controle total sobre seus projetos.",
       status: "Live",
       url: "#",
-      images: ["/images/teckplast-1.png", "/images/teckplast-2.png", "/images/teckplast-3.png"],
+      images: ["/images/systems/teckplast-1.png", "/images/systems/teckplast-2.png", "/images/systems/teckplast-3.png"],
       benefits: ["Calendário de ordens", "Gestão de orçamentos", "Controle de pedidos", "Relatórios de projetos"]
     },
   ];
@@ -211,7 +211,7 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <img src="/delmack-logo.png" alt="Delmack" className="h-12 w-auto" />
+              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663072122915/RNxlMucdcGUTrCnV.png" alt="Delmack" className="h-12 w-auto" />
             </div>
 
             {/* Menu Desktop */}
