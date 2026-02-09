@@ -403,7 +403,7 @@ export default function Home() {
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col">
                   {/* Imagem */}
                   {system.images && system.images.length > 0 && (
-                    <div className="relative bg-white overflow-hidden flex items-center justify-center" style={{aspectRatio: 'clamp(1, 940/430, 1)'}}>
+                    <div className="relative bg-white overflow-hidden flex items-center justify-center" style={{aspectRatio: '940/430'}}>
                       <img
                         key={currentImageIndex[index] || 0}
                         src={system.images[currentImageIndex[index] || 0]}
